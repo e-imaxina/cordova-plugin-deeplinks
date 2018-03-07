@@ -12,7 +12,7 @@ var path = require('path');
 var mkpath = require('mkpath');
 var ConfigXmlHelper = require('../configXmlHelper.js');
 var WEB_HOOK_FILE_PATH = path.join('ul_web_hooks', 'android', 'android_web_hook.html');
-var WEB_HOOK_TPL_FILE_PATH = path.join('plugins', 'cordova-universal-links-plugin', 'ul_web_hooks', 'android_web_hook_tpl.html');
+var WEB_HOOK_TPL_FILE_PATH = path.join('plugins', 'cordova-plugin-deeplinks', 'ul_web_hooks', 'android_web_hook_tpl.html');
 var LINK_PLACEHOLDER = '[__LINKS__]';
 var LINK_TEMPLATE = '<link rel="alternate" href="android-app://<package_name>/<scheme>/<host><path>" />';
 
