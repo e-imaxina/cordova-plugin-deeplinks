@@ -79,7 +79,7 @@ var universalLinks = {
    *
    * @param {number} milliseconds - Optional. The number of milliseconds to wait before executing the code. If omitted, the value 0 is used
    */
-  checkDeepLink: function () {
+  checkDeepLink: function (milliseconds) {
       var _this = this;
       return new Promise(function (resolve, reject) {
           setTimeout(function () {
