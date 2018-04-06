@@ -34,7 +34,7 @@ var universalLinks = {
    * Bind Event Listeners
    */
   bindEvents: function() {
-    const _this = this;
+    var _this = this;
     document.addEventListener('deviceready', function() {
       _this.onDeviceReady();
     }, false);
@@ -44,7 +44,7 @@ var universalLinks = {
    *  deviceready Event Handler
    */
   onDeviceReady: function() {
-    const _this = this;
+    var _this = this;
     this.subscribe(_this.eventName, function(event) {
       _this.didLaunchAppFromLink(event);
     });
