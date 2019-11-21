@@ -182,7 +182,7 @@ public class UniversalLinksPlugin extends CordovaPlugin {
 
         // if app was not launched by the url - ignore
         if (!Intent.ACTION_VIEW.equals(action) || launchUri == null) {
-            Log.d("app was not launched by the url: ", action);
+            Log.d("UniversalLinks", "App was not launched by the url: " + action);
             return;
         }
 
@@ -196,6 +196,12 @@ public class UniversalLinksPlugin extends CordovaPlugin {
         // store message and try to consume it
         storedMessage = new JSMessage(host, launchUri);
         tryToConsumeEvent();
+        /*
+         * inAppBrowser breaks the intent load feature, just remove the data in Intent to avoid duplicated call deeplink features,
+         * this case is only happend with no SPA application,
+         * once user goBack to the index page from deeplink, it will trigger again deeplink logic. to fix this bug, only clear the data.
+         * */
+        intent.setData(null);
     }
 
     /**
