@@ -248,12 +248,18 @@ function isLaunchActivity(activity) {
     var action = intentFilter['action'];
     var category = intentFilter['category'];
 
-    if (action == null || action.length != 1 || category == null || category.length != 1) {
-      return false;
+    var isMainAction = false;
+    var isLauncherCategory = false;
+
+    for(let index in action) {
+      if(action[index]['$']['android:name'] === 'android.intent.action.MAIN')
+        isMainAction = true;
     }
 
-    var isMainAction = ('android.intent.action.MAIN' === action[0]['$']['android:name']);
-    var isLauncherCategory = ('android.intent.category.LAUNCHER' === category[0]['$']['android:name']);
+    for(let index in category) {
+      if(category[index]['$']['android:name'] === 'android.intent.category.LAUNCHER')
+        isLauncherCategory = true;
+    }
 
     return isMainAction && isLauncherCategory;
   });
