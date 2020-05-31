@@ -248,15 +248,18 @@ function isLaunchActivity(activity) {
     var action = intentFilter['action'];
     var category = intentFilter['category'];
 
+    if (action == null || category == null)
+      return false;
+    
     var isMainAction = false;
     var isLauncherCategory = false;
 
-    for(let index in action) {
+    for (let index in action) {
       if(action[index]['$']['android:name'] === 'android.intent.action.MAIN')
         isMainAction = true;
     }
 
-    for(let index in category) {
+    for (let index in category) {
       if(category[index]['$']['android:name'] === 'android.intent.category.LAUNCHER')
         isLauncherCategory = true;
     }
